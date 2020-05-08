@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "866da8c8-dc0d-4db0-90da-ff1a7e76d523",
+		"name": "Pruebas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+			"name": "Usuarios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fdeba3e4-e3de-4633-9129-28efa1402620",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[1].name).to.eql(\"Ervin Howell\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/users",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Peticion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b6556938-7af4-49a1-8ca5-94d6650468b9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].name).to.eql(\"Leanne Graham\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n     { \r\n        \"id\": 16, \r\n        \"nombre\": \"Krishna Rungta\", \r\n        \"nombre de usuario\": \"Bret\", \r\n        \"correo electrónico\": \" Sincero@gmail.com\", \r\n        \"dirección\": { \r\n            \"calle\": \"Kulas Light\" , \r\n            \"suite\": \"Apt. 559\", \r\n            \"ciudad\": \"Gwenborough\", \r\n            \"código postal\": \"92998-3874\", \r\n            \"geo\": { \r\n                \"lat\": \"-37.3159\", \r\n                \"lng\": \"81.1496\" \r\n            } \r\n        }, \r\n        \"teléfono\": \"1-770-736-8031 x56442 \", \r\n        \" sitio web \":\" hildegard.org \", \r\n        \" empresa \": { \r\n            \" nombre \":\" Romaguera-Crona \",\r\n            \"catchPhrase\": \"red neuronal cliente-servidor de varias capas\", \r\n            \"bs\": \"aprovechar los mercados electrónicos en tiempo real\" \r\n        } \r\n    } ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/users",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddCurso",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "aba13ced-58ce-4dfe-bd5b-c9c5059a68de",
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"",
+							"let manufacturer;",
+							"for (let filter of jsonData.filters){",
+							"  ",
+							"}",
+							" console.log(manufacturer);",
+							"",
+							"",
+							"pm.test(\"Manufacturer should not be allowed\", function()",
+							"{",
+							"    pm.expect(manufacturer.name).to.eql(\"MANUFACTURER\");",
+							"    pm.expect(manufacturer.isAllowed).to.be.false;",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://www.mocky.io/v2/5ab350d62f00005a00ca3663",
+					"protocol": "http",
+					"host": [
+						"www",
+						"mocky",
+						"io"
+					],
+					"path": [
+						"v2",
+						"5ab350d62f00005a00ca3663"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://www.mocky.io/v2/5ab34d8c2f00006600ca3652",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "722268d8-2f02-4b69-a9b9-a32fe96bb296",
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"let commentsStatus = jsonData.prefs.comments.status;",
+							"let commentsCount = jsonData.prefs.comments.count;",
+							"",
+							"",
+							"",
+							"console.log(commentsStatus);",
+							"",
+							"pm.test(\"comments should be disabled\", function(){",
+							"   pm.expect(commentsStatus).to.eql(\"disabled\"); ",
+							"});",
+							"",
+							"pm.test(\"otra pero con numeros\", function(){",
+							"    pm.expect(commentsCount).to.eql(0);",
+							"});",
+							"",
+							"let boardStatus = jsonData.limits['54bba24af6196bd5f824e563'].boards.totalPerMember.status;",
+							"console.log(boardStatus);",
+							"",
+							"pm.test(\"status ok\", function(){",
+							"    pm.expect(boardStatus).to.eql(\"ok\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://www.mocky.io/v2/5ab34d8c2f00006600ca3652",
+					"protocol": "http",
+					"host": [
+						"www",
+						"mocky",
+						"io"
+					],
+					"path": [
+						"v2",
+						"5ab34d8c2f00006600ca3652"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
